@@ -2,6 +2,7 @@ import styles from './Post.module.css';
 import {ptBR} from 'date-fns/locale';
 import { format, formatDistanceToNow } from 'date-fns';
 import { Comment } from './Comment';
+import { Avatar } from './Avatar';
 export function Post() {
     const publishedDate = new Date ('2026-03-07 08:13:30');
     const publishedDateFormatted = format(publishedDate, "d 'de' MMM 'às' HH:mm'h'", { 
@@ -15,7 +16,7 @@ export function Post() {
         <article className = {styles.post}>
             <header>
                 <div className = {styles.author}>
-                    <img className={styles.avatar} src="https://avatars.githubusercontent.com/u/165338243?v=4" alt="" />
+                    <Avatar src="https://avatars.githubusercontent.com/u/165338243?v=4" HasBorder/>
                     <div className={styles.authorInfo}>
                         <strong>João Vitor Batu</strong>
                         <span>Desenvolvedor Frontend</span>
