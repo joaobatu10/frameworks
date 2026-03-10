@@ -1,5 +1,15 @@
 import styles from './Post.module.css';
+import {ptBR} from 'date-fns/locale';
+import { format, formatDistanceToNow } from 'date-fns';
 export function Post() {
+    const publishedDate = new Date ('2026-03-07 08:13:30');
+    const publishedDateFormatted = format(publishedDate, "d 'de' MMM 'às' HH:mm'h'", { 
+        locale: ptBR });
+    const publishedDateRelativeToNow = formatDistanceToNow(publishedDate, {
+        locale: ptBR,
+        addSuffix: true,
+    });
+
     return (
         <article className = {styles.post}>
             <header>
@@ -10,7 +20,9 @@ export function Post() {
                         <span>Desenvolvedor Frontend</span>
                     </div>
                 </div>
-                    <time title="11 de maio às 08:13h" dateTime="2022-05-11 08:13:30">Publicado há 1h</time>
+                    <time title={publishedDateFormatted} dateTime={publishedDate.toISOString()}>
+                        Publicado há 1hr
+                    </time>
             </header>
 
             <div className={styles.content}>
