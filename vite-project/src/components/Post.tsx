@@ -1,6 +1,7 @@
 import styles from './Post.module.css';
 import {ptBR} from 'date-fns/locale';
 import { format, formatDistanceToNow } from 'date-fns';
+import { Comment } from './Comment';
 export function Post() {
     const publishedDate = new Date ('2026-03-07 08:13:30');
     const publishedDateFormatted = format(publishedDate, "d 'de' MMM 'às' HH:mm'h'", { 
@@ -43,6 +44,13 @@ export function Post() {
                 <button type='submit'>Publicar</button>
                 </footer>
             </form>
+            <div className={styles.commentList}>   
+                <Comment />
+                <Comment />
+                <Comment /> 
+
+            </div>
+
         </article>
     );
 }
